@@ -1,10 +1,10 @@
 package entities;
 
+import exception.ExceptionBLL;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -22,12 +22,12 @@ public class Dev {
         inscritos.addAll(bootcamp.getEstudos());
     }
 
-    private void validaConteudoInscritos(){
+    private void validaConteudoInscritos()throws ExceptionBLL {
         if(inscritos.isEmpty()){
-            throw new RuntimeException("Não há estudos inscritos");
+            throw new ExceptionBLL("Não há estudos inscritos");
         }
     }
-    public void progredir() {
+    public void progredir() throws ExceptionBLL {
         validaConteudoInscritos();
         Optional<Estudo> estudo = inscritos.stream().findFirst();
         estudo.ifPresent(value -> {
