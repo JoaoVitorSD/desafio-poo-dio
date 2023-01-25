@@ -6,43 +6,20 @@ import lombok.Setter;
 import java.time.LocalDate;
 @Getter
 @Setter
-public class Mentoria {
-    private String titulo;
-    private String descricao;
+public class Mentoria extends Estudo {
 
-    private LocalDate date;
 
-    public Long calcXp(){
-        return 0L;
-    }
+    private LocalDate data;
 
-    public Mentoria(String titulo, String descricao, LocalDate date) {
+
+    public Mentoria(String titulo, String descricao, LocalDate data) {
         this.titulo = titulo;
         this.descricao = descricao;
-        this.date = date;
+        this.data = data;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public Double calcXp(){
+        return XP_PADRAO+20d;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
 }

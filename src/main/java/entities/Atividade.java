@@ -5,14 +5,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Atividade {
+public class Atividade extends Estudo{
     private String titulo;
 
     private String descricao;
 
     private Integer cargaHoraria;
 
-    public Long calcXp(){
-        return 0L;
+    public Double calcXp(){
+        return XP_PADRAO*cargaHoraria;
     }
 }
